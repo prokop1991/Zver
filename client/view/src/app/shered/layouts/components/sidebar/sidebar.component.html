@@ -1,0 +1,68 @@
+<div class="logo">
+    <a routerLink = "/" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/logo.png"/>
+        </div>
+        <i style="color: #76bd1d;">Сити</i>
+        <i style="color: #0971ce;">Фермер</i>
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <!--*ngIf="isMobileMenu()"-->
+  <div>
+    <form class="navbar-form">
+      <span class="bmd-form-group">
+        <div class="input-group no-border">
+          <input type="text" value="" class="form-control" placeholder="Поиск...">
+          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+        
+      </span>
+    </form>
+    <ul class="nav navbar-nav nav-mobile-menu">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">
+                <i class="material-icons">dashboard</i>
+                <p>
+                    <span class="d-lg-none d-md-block">Заглушка1</span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item dropdown" [ngClass]="{show : dropdown_show}">
+            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" (click)="dropdown_show_fn()">
+                <i class="material-icons">notifications</i>
+                <span class="notification">4</span>
+                <p>
+                    <span class="d-lg-none d-md-block">Оповешение</span>
+                </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" [ngClass]="{show : dropdown_show}">
+                <a class="dropdown-item" href="#">Оповешение1</a>
+                <a class="dropdown-item" href="#">Оповешение2</a>
+                <a class="dropdown-item" href="#">Оповешение3</a>
+                <a class="dropdown-item" href="#">Оповешение4</a>
+                <a class="dropdown-item" href="#">Оповешение5</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">
+                <i class="material-icons">person</i>
+                <p>
+                    <span class="d-lg-none d-md-block">Аккаунт</span>
+                </p>
+            </a>
+        </li>
+    </ul>
+  </div>
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>
